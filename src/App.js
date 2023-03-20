@@ -6,6 +6,7 @@ import Remote2 from "../components/Remote2";
 import ErrorBoundary from "../components/ErrorBoundary";
 import Contact from "../components/Contact";
 import NavBar from "../components/Navbar";
+import config from "../config.json";
 
 
 const App = () => {
@@ -27,3 +28,11 @@ const App = () => {
 };
 
 export default App;
+
+// const fillRemoteAppRoutes = () => {
+//   const mapRoutes = config.remotes.map((route)=>{
+//     return `<Route path='${route}' element={<Home/>} />`
+//   });
+//   console.log(mapRoutes.join(""));
+//   return mapRoutes.join("");
+// }

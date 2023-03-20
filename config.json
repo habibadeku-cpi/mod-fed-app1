@@ -1,0 +1,12 @@
+{
+    "remotes": [
+        {
+            "name": "home-contact",
+            "route": "/contact"
+        },
+        {
+            "name": "remote1-spaces",
+            "route": "/remote1/spaces"
+        }
+    ]
+}

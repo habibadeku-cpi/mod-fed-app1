@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
-import { inject, unmount } from 'app3/appInjector';
+import { inject, unmount, appName } from 'app3/appInjector';
 
 
-const parentElementId = 'parent2';
+const parentElementId = appName;
 
 const Remote2 = () => {
     useEffect(() => {
         inject(parentElementId);
+        subscribeToEvent(appName, eventHandler);
         return () => unmount(parentElementId);
     }, []);
 
@@ -16,3 +17,16 @@ const Remote2 = () => {
 };
   
 export default Remote2;
+
+const eventHandler =(ev)=> {
+  console.log(`event from ${appName} ${ev.detail}`);
+}
+
+const subscribeToEvent = (eventName, listener) => {
+  unsubscribeFromEvent(eventName, listener);
+  document.addEventListener(eventName, listener);
+}
+
+const unsubscribeFromEvent = (eventName, listener) => {
+  document.removeEventListener(eventName, listener);
+}
